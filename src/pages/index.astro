@@ -1,11 +1,12 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
-import profileImage from '../assets/profile.jpg';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
+import profileImage from '../assets/profile.jpg';
+import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -18,26 +19,62 @@ const posts = (await getCollection('blog'))
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="flex min-h-screen flex-col">
-    <main class="mx-auto flex w-full max-w-[960px] grow flex-col items-center justify-center p-4">
-      <h1 class="mb-8 text-3xl font-bold text-gray-400">
+    <main
+      class="mx-auto flex w-full max-w-[960px] grow flex-col items-center justify-center gap-8 p-4"
+    >
+      <h1 class="text-3xl font-bold tracking-widest text-gray-400">
         (<span class="text-sky-300">q</span>w<span class="text-sky-300">q</span>)<span
           class="text-orange-300">b</span
         >
       </h1>
-      <div class="mb-4 flex flex-col items-center text-center text-gray-700">
-        <Image
-          src={profileImage}
-          alt="intn"
-          width={100}
-          height={100}
-          class="mb-4 rounded-full shadow-md"
-        />
+      <div class="flex flex-col items-center text-center text-gray-700">
+        <Image src={profileImage} alt="intn" width={100} height={100} class="mb-4 rounded-full" />
         <p class="mb-2">intn</p>
         <p>Software Engineer</p>
         <p>Nagano / Japan</p>
       </div>
 
-      <hr class="my-8 h-px w-64 border-0 bg-gray-200" />
+      <div class="flex gap-4">
+        <a
+          href="https://github.com/qwq-net"
+          target="_blank"
+          aria-label="GitHub"
+          class="text-gray-500 transition-colors hover:text-gray-900"
+        >
+          <Icon name="simple-icons:github" class="size-5" />
+        </a>
+        <a
+          href="https://x.com/qwqnet"
+          target="_blank"
+          aria-label="X (Twitter)"
+          class="text-gray-500 transition-colors hover:text-gray-900"
+        >
+          <Icon name="simple-icons:x" class="size-5" />
+        </a>
+        <a
+          href="https://steamcommunity.com/id/qwqnet/"
+          target="_blank"
+          aria-label="Steam"
+          class="text-gray-500 transition-colors hover:text-gray-900"
+        >
+          <Icon name="simple-icons:steam" class="size-5" />
+        </a>
+        <div class="group relative flex items-center justify-center">
+          <span
+            class="cursor-pointer text-gray-500 transition-colors hover:text-gray-900"
+            aria-label="Discord"
+          >
+            <Icon name="simple-icons:discord" class="size-5" />
+          </span>
+          <span
+            class="pointer-events-none absolute -top-8 left-1/2 min-w-max -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-xs text-white opacity-0 shadow transition-opacity group-hover:opacity-100 dark:bg-gray-100 dark:text-gray-900"
+          >
+            ask me
+          </span>
+        </div>
+      </div>
+
+      <hr class="h-px w-64 border-0 bg-gray-200" />
 
       <section class="w-full max-w-md">
         <p class="mb-4 text-center text-xl font-bold text-gray-800">Latest Posts</p>

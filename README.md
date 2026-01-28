@@ -1,6 +1,6 @@
 # qwqb-web
 
-qwqb の個人サイト兼ブログです。
+intn の個人サイト兼ブログです。
 Astro Blog Template をベースに構築されています。
 
 ## 特徴
