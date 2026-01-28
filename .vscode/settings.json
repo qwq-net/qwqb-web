@@ -1,0 +1,14 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "npx astro": true,
+    "npm install": true,
+    "npm search": true,
+    "npm uninstall": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "css.lint.unknownAtRules": "ignore"
+}

@@ -1,49 +1,70 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import { Image } from 'astro:assets';
+import profileImage from '../assets/profile.jpg';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang="ja">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <main class="mx-auto flex w-full max-w-[960px] grow flex-col items-center justify-center p-4">
+      <h1 class="mb-8 text-3xl font-bold text-gray-400">
+        (<span class="text-sky-300">q</span>w<span class="text-sky-300">q</span>)<span
+          class="text-orange-300">b</span
+        >
+      </h1>
+      <div class="mb-4 flex flex-col items-center text-center text-gray-700">
+        <Image
+          src={profileImage}
+          alt="intn"
+          width={100}
+          height={100}
+          class="mb-4 rounded-full shadow-md"
+        />
+        <p class="mb-2">intn</p>
+        <p>Software Engineer</p>
+        <p>Nagano / Japan</p>
+      </div>
+
+      <hr class="my-8 h-px w-64 border-0 bg-gray-200" />
+
+      <section class="w-full max-w-md">
+        <p class="mb-4 text-center text-xl font-bold text-gray-800">Latest Posts</p>
+        <ul class="list-none p-0">
+          {
+            posts.map((post) => (
+              <li class="mb-3 flex items-baseline justify-between rounded border-b border-gray-100 px-2 pb-2 transition-colors last:border-0 hover:bg-gray-50">
+                <a
+                  href={`/blog/${post.id}/`}
+                  class="font-medium text-blue-600 visited:text-purple-700 hover:underline"
+                >
+                  {post.data.title}
+                </a>
+                <div class="ml-4 flex-none font-mono text-sm text-gray-500">
+                  <FormattedDate date={post.data.pubDate} />
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-6 text-center">
+          <a href="/blog" class="text-sm text-gray-500 transition-colors hover:text-gray-900"
+            >すべての記事を見る →</a
+          >
+        </p>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
