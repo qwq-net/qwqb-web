@@ -7,7 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 ---
 
 <html lang="ja">
@@ -22,11 +22,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           <div class="hero-image w-full">
             {
               heroImage && (
-                <Image width={1020} height={510} src={heroImage} alt="" class="mx-auto block rounded-xl shadow-md" />
+                <Image
+                  width={1020}
+                  height={510}
+                  src={heroImage}
+                  alt=""
+                  class="mx-auto block rounded-xl shadow-md"
+                />
               )
             }
           </div>
-          <div class="title mb-4 py-4 text-center leading-none">
+          <div class="title py-4 text-center leading-none">
             <div class="date mb-2 text-gray-500">
               <FormattedDate date={pubDate} />
               {
@@ -38,8 +44,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               }
             </div>
             <h1 class="m-0 mb-2">{title}</h1>
-            <hr />
+            {
+              tags && tags.length > 0 && (
+                <div class="mt-2 flex justify-center gap-2">
+                  {tags.map((tag) => (
+                    <span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-500">{tag}</span>
+                  ))}
+                </div>
+              )
+            }
+            <hr class="mx-auto my-4 h-px w-64 border-0 bg-gray-200" />
           </div>
+
           <slot />
         </div>
       </article>

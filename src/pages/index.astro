@@ -19,11 +19,17 @@ const posts = (await getCollection('blog'))
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="flex min-h-screen flex-col">
-    <main class="mx-auto flex w-full max-w-[960px] grow flex-col items-center justify-center gap-8 p-4">
-      <h1 class="flex min-h-[1.5em] items-center text-3xl font-bold tracking-wide text-gray-400" aria-label="qwqb">
+    <main
+      class="mx-auto flex w-full max-w-[960px] grow flex-col items-center justify-center gap-8 p-4"
+    >
+      <h1
+        class="flex min-h-[1.5em] items-center text-3xl font-bold tracking-wide text-gray-400"
+        aria-label="qwqb"
+      >
         <span id="typewriter"></span>
         <span class="animate-cursor ml-1 inline-block h-6 w-3 bg-gray-400 align-middle"></span>
       </h1>
+
       <div class="flex flex-col items-center text-center text-gray-700">
         <Image
           src={profileImage}
@@ -48,6 +54,7 @@ const posts = (await getCollection('blog'))
         >
           <Icon name="simple-icons:github" class="size-5" />
         </a>
+
         <a
           href="https://x.com/qwqnet"
           target="_blank"
@@ -56,6 +63,16 @@ const posts = (await getCollection('blog'))
         >
           <Icon name="simple-icons:x" class="size-5" />
         </a>
+
+        <a
+          href="https://www.pixiv.net/users/88873654"
+          target="_blank"
+          aria-label="Pixiv"
+          class="text-gray-500 transition-colors hover:text-gray-900"
+        >
+          <Icon name="simple-icons:pixiv" class="size-5" />
+        </a>
+
         <a
           href="https://steamcommunity.com/id/qwqnet/"
           target="_blank"
@@ -64,6 +81,7 @@ const posts = (await getCollection('blog'))
         >
           <Icon name="simple-icons:steam" class="size-5" />
         </a>
+
         <div class="group relative flex items-center justify-center">
           <button
             type="button"
@@ -88,7 +106,10 @@ const posts = (await getCollection('blog'))
           {
             posts.map((post) => (
               <li class="mb-3 flex items-baseline justify-between rounded border-b border-gray-100 px-2 pb-2 transition-colors last:border-0 hover:bg-gray-50">
-                <a href={`/blog/${post.id}/`} class="font-medium text-blue-600 visited:text-purple-700 hover:underline">
+                <a
+                  href={`/blog/${post.id}/`}
+                  class="font-medium text-blue-600 visited:text-purple-700 hover:underline"
+                >
                   {post.data.title}
                 </a>
                 <div class="ml-4 flex-none font-mono text-sm text-gray-500">
@@ -99,7 +120,9 @@ const posts = (await getCollection('blog'))
           }
         </ul>
         <p class="mt-6 text-center">
-          <a href="/blog" class="text-sm text-gray-500 transition-colors hover:text-gray-900">すべての記事を見る →</a>
+          <a href="/blog" class="text-sm text-gray-500 transition-colors hover:text-gray-900"
+            >すべての記事を見る →</a
+          >
         </p>
       </section>
     </main>
