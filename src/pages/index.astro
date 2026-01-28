@@ -30,7 +30,13 @@ const posts = (await getCollection('blog'))
         <span class="animate-cursor ml-1 inline-block h-6 w-3 bg-gray-400 align-middle"></span>
       </h1>
       <div class="flex flex-col items-center text-center text-gray-700">
-        <Image src={profileImage} alt="intn" width={100} height={100} class="mb-4 rounded-full" />
+        <Image
+          src={profileImage}
+          alt="intn"
+          width={200}
+          height={200}
+          class="mb-4 size-[100px] rounded-full"
+        />
         <p class="mb-2">intn</p>
         <p>Software Engineer</p>
         <p>Nagano / Japan</p>
@@ -62,12 +68,13 @@ const posts = (await getCollection('blog'))
           <Icon name="simple-icons:steam" class="size-5" />
         </a>
         <div class="group relative flex items-center justify-center">
-          <span
+          <button
+            type="button"
             class="cursor-pointer text-gray-500 transition-colors hover:text-gray-900"
             aria-label="Discord"
           >
             <Icon name="simple-icons:discord" class="size-5" />
-          </span>
+          </button>
           <span
             class="pointer-events-none absolute -top-8 left-1/2 min-w-max -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-xs text-white opacity-0 shadow transition-opacity group-hover:opacity-100 dark:bg-gray-100 dark:text-gray-900"
           >
