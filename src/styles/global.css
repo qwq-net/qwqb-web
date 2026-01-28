@@ -1,12 +1,12 @@
-@import "tailwindcss";
-@import "@fontsource/ibm-plex-sans-jp/400.css";
-@import "@fontsource/ibm-plex-sans-jp/500.css";
-@import "@fontsource/ibm-plex-sans-jp/700.css";
-@import "@fontsource/ibm-plex-mono/400.css";
+@import 'tailwindcss';
+@import '@fontsource/ibm-plex-sans-jp/400.css';
+@import '@fontsource/ibm-plex-sans-jp/500.css';
+@import '@fontsource/ibm-plex-sans-jp/700.css';
+@import '@fontsource/ibm-plex-mono/400.css';
 
 @theme {
-  --font-sans: "HackGen", "IBM Plex Sans JP", sans-serif;
-  --font-mono: "HackGen Console", "IBM Plex Mono", monospace;
+  --font-sans: 'HackGen', 'IBM Plex Sans JP', sans-serif;
+  --font-mono: 'HackGen Console', 'IBM Plex Mono', monospace;
 }
 
 body {
@@ -53,8 +53,16 @@ blockquote {
   font-size: 1.1em;
   color: #6b7280;
 }
-/* hr {
-  border: none;
-  border-top: 1px solid #e5e7eb;
-  margin: 2em 0;
-} */
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.animate-cursor {
+  animation: blink 1s step-end infinite;
+}

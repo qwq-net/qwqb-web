@@ -22,10 +22,12 @@ const posts = (await getCollection('blog'))
     <main
       class="mx-auto flex w-full max-w-[960px] grow flex-col items-center justify-center gap-8 p-4"
     >
-      <h1 class="text-3xl font-bold tracking-widest text-gray-400">
-        (<span class="text-sky-300">q</span>w<span class="text-sky-300">q</span>)<span
-          class="text-orange-300">b</span
-        >
+      <h1
+        class="flex min-h-[1.5em] items-center text-3xl font-bold tracking-wide text-gray-400"
+        aria-label="qwqb"
+      >
+        <span id="typewriter"></span>
+        <span class="animate-cursor ml-1 inline-block h-6 w-3 bg-gray-400 align-middle"></span>
       </h1>
       <div class="flex flex-col items-center text-center text-gray-700">
         <Image src={profileImage} alt="intn" width={100} height={100} class="mb-4 rounded-full" />
@@ -105,3 +107,30 @@ const posts = (await getCollection('blog'))
     <Footer />
   </body>
 </html>
+
+<script>
+  const textData = [
+    { char: 'q', class: 'text-sky-300' },
+    { char: 'w', class: 'text-gray-400' },
+    { char: 'q', class: 'text-sky-300' },
+    { char: 'b', class: 'text-orange-300' },
+  ];
+
+  const container = document.getElementById('typewriter');
+
+  if (container) {
+    let i = 0;
+    const type = () => {
+      if (i < textData.length) {
+        const span = document.createElement('span');
+        span.textContent = textData[i].char;
+        span.className = textData[i].class;
+        container.appendChild(span);
+        i++;
+        setTimeout(type, 150 + Math.random() * 100);
+      }
+    };
+    // 少し待ってから開始
+    setTimeout(type, 800);
+  }
+</script>
