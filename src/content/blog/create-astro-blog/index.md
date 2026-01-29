@@ -33,13 +33,7 @@ Prettier も入れます。本当は Biome を入れたいですが、意外と�
 npm install --save-dev prettier prettier-plugin-astro prettier-plugin-tailwindcss prettier-plugin-organize-imports
 ```
 
-適当にフォントも追加しておきます。パフォーマンスに大きく影響が出たら再検討するかもしれない……。
-
-```bash
-npm install @fontsource/ibm-plex-sans-jp @fontsource/ibm-plex-mono
-```
-
-記事ページ表示用に TailwindCSS の Typography も追加してから global.css 設定しておきます。
+記事ページ表示用に TailwindCSS の Typography も追加してから global.css 設定しておきます。その他、Webフォントとかも入れておきたいところですが、モバイルの評価がだいぶ下がるので導入はしません。
 
 ```bash
 npm install @tailwindcss/typography
