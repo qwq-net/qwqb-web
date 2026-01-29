@@ -10,7 +10,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 4);
 ---
 
 <!doctype html>
@@ -40,9 +40,9 @@ const posts = (await getCollection('blog'))
           loading="eager"
           fetchpriority="high"
         />
-        <p class="mb-2">intn</p>
-        <p>Software Engineer</p>
-        <p>Nagano / Japan</p>
+        <p class="mb-2 text-xl font-bold">intn</p>
+        <p class="text-sm">Software Engineer</p>
+        <p class="text-sm">Nagano / Japan</p>
       </div>
 
       <div class="flex gap-4">
@@ -100,12 +100,12 @@ const posts = (await getCollection('blog'))
 
       <hr class="h-px w-64 border-0 bg-gray-200" />
 
-      <section class="w-full max-w-md">
-        <p class="mb-4 text-center text-xl font-bold text-gray-800">Latest Posts</p>
+      <section class="w-full max-w-xl">
+        <p class="text-md mb-4 text-center font-bold text-gray-800">Latest Posts</p>
         <ul class="list-none p-0">
           {
             posts.map((post) => (
-              <li class="mb-3 flex items-baseline justify-between rounded border-b border-gray-100 px-2 pb-2 transition-colors last:border-0 hover:bg-gray-50">
+              <li class="mb-2 flex items-baseline justify-between rounded border-gray-100 px-2 pb-2 text-sm transition-colors last:border-0 hover:bg-gray-50">
                 <a
                   href={`/blog/${post.id}/`}
                   class="font-medium text-blue-600 visited:text-purple-700 hover:underline"
