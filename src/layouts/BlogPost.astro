@@ -28,6 +28,8 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
                   src={heroImage}
                   alt=""
                   class="mx-auto block rounded-xl shadow-md"
+                  loading="eager"
+                  fetchpriority="high"
                 />
               )
             }
