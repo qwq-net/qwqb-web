@@ -8,7 +8,6 @@ Astro Blog Template をベースに構築されています。
 - **Framework**: [Astro](https://astro.build)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com) (v4)
 - **Formatting**: [Prettier](https://prettier.io)
-- **Font**: Tech Font Stack (Priority: HackGen, Fallback: IBM Plex Sans JP / Mono)
 
 ## 開発
 

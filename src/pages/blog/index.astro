@@ -33,9 +33,9 @@ const posts = (await getCollection('blog')).sort(
                       <p class="text-md m-0 font-mono font-bold text-gray-700">
                         <FormattedDate date={post.data.pubDate} />
                       </p>
-                      <h4 class="m-0 line-clamp-1 text-sm font-bold text-gray-700 transition-colors group-hover:text-sky-500">
+                      <h2 class="m-0 line-clamp-1 text-sm font-bold text-gray-700 transition-colors group-hover:text-sky-500">
                         {post.data.title}
-                      </h4>
+                      </h2>
                     </div>
                     <p class="line-clamp-2 text-sm leading-relaxed text-gray-500">
                       {post.data.description}
@@ -43,7 +43,7 @@ const posts = (await getCollection('blog')).sort(
                     {post.data.tags && post.data.tags.length > 0 && (
                       <div class="mt-1 flex gap-2">
                         {post.data.tags.map((tag) => (
-                          <span class="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] text-gray-500">
+                          <span class="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] text-gray-700">
                             {tag}
                           </span>
                         ))}
@@ -55,7 +55,7 @@ const posts = (await getCollection('blog')).sort(
                       width={140}
                       height={80}
                       src={post.data.heroImage}
-                      alt=""
+                      alt={`${post.data.title}の画像`}
                       class="h-[80px] w-[140px] shrink-0 rounded object-cover shadow-sm transition-transform group-hover:scale-105"
                     />
                   )}
