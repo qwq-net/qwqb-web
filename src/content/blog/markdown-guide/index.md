@@ -1,12 +1,12 @@
 ---
 title: "Markdown Syntax Guide"
 description: "Astroで使用可能なMarkdown記法の網羅的なテストページです。見出し、リスト、コードブロック、テーブルなどの表示確認に使用します。"
-pubDate: "Jan 28 2026"
-heroImage: "../../assets/placeholder.jpg"
-tags: ["Blog"]
+pubDate: "2026-01-28"
+heroImage: "./placeholder.jpg"
+tags: ["Programming"]
 ---
 
-このページでは、Astroでサポートされている基本的なMarkdown記法をテストします。
+Astro で使用可能な Markdown 記法の網羅的なテストページです。見出し、リスト、コードブロック、テーブルなどの表示確認に使用します。しばらくしたら消す予定です。
 
 ## 見出し (Headings)
 
@@ -111,7 +111,7 @@ greet("Astro User");
 
 ### 画像埋め込み
 
-![プレースホルダー画像](../../assets/placeholder.jpg)
+![プレースホルダー画像](./placeholder.jpg)
 
 ## テーブル (Tables)
 
